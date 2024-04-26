@@ -4271,7 +4271,7 @@ void WiFiScan::activeEapolSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t
       // Check buttons for presses
       for (uint8_t b = 0; b < BUTTON_ARRAY_LEN; b++)
       {
-        if (pressed && display_obj.key[b].contains(t_x, t_y))
+        if (pressed && display_obj.key[b].contains(t_x, 20))
         {
           display_obj.key[b].press(true);
         } else {
@@ -4298,7 +4298,7 @@ void WiFiScan::activeEapolSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t
               Serial.println("Shit channel down");
               set_channel--;
               delay(70);
-              display_obj.tft.fillRect(127, 0, 193, 28, TFT_BLACK);
+              display_obj.tft.fillRect(127, 0, 193, 40, TFT_BLACK);
               display_obj.tftDrawChannelScaleButtons(set_channel);
               display_obj.tftDrawExitScaleButtons();
               changeChannel();
@@ -4312,7 +4312,7 @@ void WiFiScan::activeEapolSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t
               Serial.println("Shit channel up");
               set_channel++;
               delay(70);
-              display_obj.tft.fillRect(127, 0, 193, 28, TFT_BLACK);
+              display_obj.tft.fillRect(127, 0, 193, 40, TFT_BLACK);
               display_obj.tftDrawChannelScaleButtons(set_channel);
               display_obj.tftDrawExitScaleButtons();
               changeChannel();
@@ -4343,14 +4343,7 @@ void WiFiScan::activeEapolSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t
         display_obj.tft.drawLine(x_pos - x_scale, y_pos_x_old, x_pos, y_pos_x, TFT_CYAN);
   
         //Draw preceding black 'boxes' to erase old plot lines, !!!WEIRD CODE TO COMPENSATE FOR BUTTONS AND COLOR KEY SO 'ERASER' DOESN'T ERASE BUTTONS AND COLOR KEY!!!
-        if ((x_pos <= 90) || ((x_pos >= 117) && (x_pos <= 320))) //above x axis
-        {
-          display_obj.tft.fillRect(x_pos+1, 28, 10, 93, TFT_BLACK); //compensate for buttons!
-        }
-        else
-        {
-          display_obj.tft.fillRect(x_pos+1, 0, 10, 121, TFT_BLACK); //don't compensate for buttons!
-        }
+        display_obj.tft.fillRect(x_pos+1, 28, 10, 93, TFT_BLACK); //compensate for buttons!
         if (x_pos < 0) // below x axis
         {
           //tft.fillRect(x_pos+1, 121, 10, 88, TFT_BLACK);
@@ -4381,8 +4374,8 @@ void WiFiScan::activeEapolSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t
       #endif
   
     }
-  
-    display_obj.tft.fillRect(127, 0, 193, 28, TFT_BLACK); //erase XY buttons and any lines behind them
+    
+    display_obj.tft.fillRect(127, 0, 193, 40, TFT_BLACK); //erase XY buttons and any lines behind them
     display_obj.tft.fillRect(12, 0, 90, 32, TFT_BLACK); // key
     display_obj.tftDrawChannelScaleButtons(set_channel);
     display_obj.tftDrawExitScaleButtons();
@@ -4424,7 +4417,7 @@ void WiFiScan::activeEapolSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t
       // Check buttons for presses
       for (uint8_t b = 0; b < BUTTON_ARRAY_LEN; b++)
       {
-        if (pressed && display_obj.key[b].contains(t_x, t_y))
+        if (pressed && display_obj.key[b].contains(t_x, 20))
         {
           display_obj.key[b].press(true);
         } else {
@@ -4450,7 +4443,7 @@ void WiFiScan::activeEapolSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t
             if (x_scale > 1) {
               x_scale--;
               delay(70);
-              display_obj.tft.fillRect(127, 0, 193, 28, TFT_BLACK);
+              display_obj.tft.fillRect(127, 0, 193, 40, TFT_BLACK);
               display_obj.tftDrawXScaleButtons(x_scale);
               display_obj.tftDrawYScaleButtons(y_scale);
               display_obj.tftDrawChannelScaleButtons(set_channel);
@@ -4463,7 +4456,7 @@ void WiFiScan::activeEapolSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t
             if (x_scale < 6) {
               x_scale++;
               delay(70);
-              display_obj.tft.fillRect(127, 0, 193, 28, TFT_BLACK);
+              display_obj.tft.fillRect(127, 0, 193, 40, TFT_BLACK);
               display_obj.tftDrawXScaleButtons(x_scale);
               display_obj.tftDrawYScaleButtons(y_scale);
               display_obj.tftDrawChannelScaleButtons(set_channel);
@@ -4477,7 +4470,7 @@ void WiFiScan::activeEapolSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t
             if (y_scale > 1) {
               y_scale--;
               delay(70);
-              display_obj.tft.fillRect(127, 0, 193, 28, TFT_BLACK);
+              display_obj.tft.fillRect(127, 0, 193, 50, TFT_BLACK);
               display_obj.tftDrawXScaleButtons(x_scale);
               display_obj.tftDrawYScaleButtons(y_scale);
               display_obj.tftDrawChannelScaleButtons(set_channel);
@@ -4492,7 +4485,7 @@ void WiFiScan::activeEapolSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t
             if (y_scale < 9) {
               y_scale++;
               delay(70);
-              display_obj.tft.fillRect(127, 0, 193, 28, TFT_BLACK);
+              display_obj.tft.fillRect(127, 0, 193, 40, TFT_BLACK);
               display_obj.tftDrawXScaleButtons(x_scale);
               display_obj.tftDrawYScaleButtons(y_scale);
               display_obj.tftDrawChannelScaleButtons(set_channel);
@@ -4508,7 +4501,7 @@ void WiFiScan::activeEapolSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t
               Serial.println("Shit channel down");
               set_channel--;
               delay(70);
-              display_obj.tft.fillRect(127, 0, 193, 28, TFT_BLACK);
+              display_obj.tft.fillRect(127, 0, 193, 40, TFT_BLACK);
               display_obj.tftDrawXScaleButtons(x_scale);
               display_obj.tftDrawYScaleButtons(y_scale);
               display_obj.tftDrawChannelScaleButtons(set_channel);
@@ -4524,7 +4517,7 @@ void WiFiScan::activeEapolSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t
               Serial.println("Shit channel up");
               set_channel++;
               delay(70);
-              display_obj.tft.fillRect(127, 0, 193, 28, TFT_BLACK);
+              display_obj.tft.fillRect(127, 0, 193, 40, TFT_BLACK);
               display_obj.tftDrawXScaleButtons(x_scale);
               display_obj.tftDrawYScaleButtons(y_scale);
               display_obj.tftDrawChannelScaleButtons(set_channel);
@@ -4571,13 +4564,7 @@ void WiFiScan::activeEapolSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t
         //Draw preceding black 'boxes' to erase old plot lines, !!!WEIRD CODE TO COMPENSATE FOR BUTTONS AND COLOR KEY SO 'ERASER' DOESN'T ERASE BUTTONS AND COLOR KEY!!!
         //if ((x_pos <= 90) || ((x_pos >= 198) && (x_pos <= 320))) //above x axis
         if ((x_pos <= 90) || ((x_pos >= 117) && (x_pos <= 320))) //above x axis
-        {
-          display_obj.tft.fillRect(x_pos+1, 28, 10, 93, TFT_BLACK); //compensate for buttons!
-        }
-        else
-        {
-          display_obj.tft.fillRect(x_pos+1, 0, 10, 121, TFT_BLACK); //don't compensate for buttons!
-        }
+        display_obj.tft.fillRect(x_pos+1, 38, 10, 93, TFT_BLACK); //compensate for buttons!
         //if ((x_pos >= 254) && (x_pos <= 320)) //below x axis
         //if (x_pos <= 90)
         if (x_pos < 0) // below x axis
@@ -4611,7 +4598,7 @@ void WiFiScan::activeEapolSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t
      
     }
     
-    display_obj.tft.fillRect(127, 0, 193, 28, TFT_BLACK); //erase XY buttons and any lines behind them
+    display_obj.tft.fillRect(127, 0, 193, 40, TFT_BLACK); //erase XY buttons and any lines behind them
     //tft.fillRect(56, 0, 66, 32, TFT_ORANGE); //erase time and color key and any stray lines behind them
     display_obj.tft.fillRect(12, 0, 90, 32, TFT_BLACK); // key
     

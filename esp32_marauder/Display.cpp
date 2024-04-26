@@ -125,14 +125,14 @@ void Display::tftDrawColorKey()
 
 void Display::tftDrawXScaleButtons(byte x_scale)
 {
-  tft.drawFastVLine(234, 0, 20, TFT_WHITE);
-  tft.setCursor(208, 21); tft.setTextColor(TFT_WHITE); tft.setTextSize(1); tft.print("X Scale:"); tft.print(x_scale);
+  tft.drawFastVLine(234, 0, 25, TFT_WHITE);
+  tft.setCursor(208, 27); tft.setTextColor(TFT_WHITE); tft.setTextSize(1); tft.print("X Scale:"); tft.print(x_scale);
 
   key[0].initButton(&tft, // x - box
                         220,
-                        10, // x, y, w, h, outline, fill, text
-                        20,
-                        20,
+                        11, // x, y, w, h, outline, fill, text
+                        25,
+                        25,
                         TFT_BLACK, // Outline
                         TFT_CYAN, // Fill
                         TFT_BLACK, // Text
@@ -140,9 +140,9 @@ void Display::tftDrawXScaleButtons(byte x_scale)
                         2);
   key[1].initButton(&tft, // x + box
                         249,
-                        10, // x, y, w, h, outline, fill, text
-                        20,
-                        20,
+                        11, // x, y, w, h, outline, fill, text
+                        25,
+                        25,
                         TFT_BLACK, // Outline
                         TFT_CYAN, // Fill
                         TFT_BLACK, // Text
@@ -158,14 +158,14 @@ void Display::tftDrawXScaleButtons(byte x_scale)
 
 void Display::tftDrawYScaleButtons(byte y_scale)
 {
-  tft.drawFastVLine(290, 0, 20, TFT_WHITE);
-  tft.setCursor(265, 21); tft.setTextColor(TFT_WHITE); tft.setTextSize(1); tft.print("Y Scale:"); tft.print(y_scale);
+  tft.drawFastVLine(290, 0, 25, TFT_WHITE);
+  tft.setCursor(265, 27); tft.setTextColor(TFT_WHITE); tft.setTextSize(1); tft.print("Y Scale:"); tft.print(y_scale);
 
   key[2].initButton(&tft, // y - box
                         276,
-                        10, // x, y, w, h, outline, fill, text
-                        20,
-                        20,
+                        11, // x, y, w, h, outline, fill, text
+                        25,
+                        25,
                         TFT_BLACK, // Outline
                         TFT_MAGENTA, // Fill
                         TFT_BLACK, // Text
@@ -173,9 +173,9 @@ void Display::tftDrawYScaleButtons(byte y_scale)
                         2);
   key[3].initButton(&tft, // y + box
                         305,
-                        10, // x, y, w, h, outline, fill, text
-                        20,
-                        20,
+                        11, // x, y, w, h, outline, fill, text
+                        25,
+                        25,
                         TFT_BLACK, // Outline
                         TFT_MAGENTA, // Fill
                         TFT_BLACK, // Text
@@ -191,14 +191,14 @@ void Display::tftDrawYScaleButtons(byte y_scale)
 
 void Display::tftDrawChannelScaleButtons(int set_channel)
 {
-  tft.drawFastVLine(178, 0, 20, TFT_WHITE);
-  tft.setCursor(145, 21); tft.setTextColor(TFT_WHITE); tft.setTextSize(1); tft.print(text10); tft.print(set_channel);
+  tft.drawFastVLine(178, 0, 25, TFT_WHITE);
+  tft.setCursor(145, 27); tft.setTextColor(TFT_WHITE); tft.setTextSize(1); tft.print(text10); tft.print(set_channel);
 
-  key[4].initButton(&tft, // channel - box
+  key[4].initButton(&tft, // channel - box 
                         164,
-                        10, // x, y, w, h, outline, fill, text
-                        20,
-                        20,
+                        11, // x, y, w, h, outline, fill, text
+                        25,
+                        25,
                         TFT_BLACK, // Outline
                         TFT_BLUE, // Fill
                         TFT_BLACK, // Text
@@ -206,9 +206,9 @@ void Display::tftDrawChannelScaleButtons(int set_channel)
                         2);
   key[5].initButton(&tft, // channel + box
                         193,
-                        10, // x, y, w, h, outline, fill, text
-                        20,
-                        20,
+                        11, // x, y, w, h, outline, fill, text
+                        25,
+                        25,
                         TFT_BLACK, // Outline
                         TFT_BLUE, // Fill
                         TFT_BLACK, // Text
@@ -228,10 +228,10 @@ void Display::tftDrawExitScaleButtons()
   //tft.setCursor(145, 21); tft.setTextColor(TFT_WHITE); tft.setTextSize(1); tft.print("Channel:"); tft.print(set_channel);
 
   key[6].initButton(&tft, // Exit box
-                        137,
-                        10, // x, y, w, h, outline, fill, text
-                        20,
-                        20,
+                        115,
+                        15, // x, y, w, h, outline, fill, text
+                        30,
+                        30,
                         TFT_ORANGE, // Outline
                         TFT_RED, // Fill
                         TFT_BLACK, // Text
