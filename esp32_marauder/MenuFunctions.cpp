@@ -936,14 +936,15 @@ void MenuFunctions::updateStatusBar()
   
   uint16_t the_color; 
 
-  if (this->old_gps_sat_count != gps_obj.getNumSats()) {
-    this->old_gps_sat_count = gps_obj.getNumSats();
-    display_obj.tft.fillRect(0, 0, 240, STATUS_BAR_WIDTH, STATUSBAR_COLOR);
-    status_changed = true;
-  }
-
   // GPS Stuff
   #ifdef HAS_GPS
+
+    if (this->old_gps_sat_count != gps_obj.getNumSats()) {
+      this->old_gps_sat_count = gps_obj.getNumSats();
+      display_obj.tft.fillRect(0, 0, 240, STATUS_BAR_WIDTH, STATUSBAR_COLOR);
+      status_changed = true;
+    }
+
     if (gps_obj.getGpsModuleStatus()) {
       if (gps_obj.getFixStatus())
         the_color = TFT_GREEN;
